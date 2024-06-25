@@ -25,7 +25,7 @@
             </nav>
             <div class="header-text">
                 <p>STUDENT</p>
-                <h1>Hi, I'm <span>Noorjahan</span><br>Shaik</h1>
+                <h1>Hi, I'm <span>Noorjahan</span> Shaik</h1>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
 <!---poertfolio-->
 <div id="portfolio">
     <div class="container">
-        <h1 class="sub-title">My Work</h1>
+        <h1 class="sub-title">Projects</h1>
         <div class="work-list">
             <div class="work">
                 <img src="personal-portfolio-img/images/work-2.png" >
@@ -92,21 +92,17 @@
                         that knows exactly what you want to see! Used skills in HTML, CSS, and JavaScript  for the 
                         pretty design.<br><p style="text-decoration: underline; font-weight: bold;"></p> 
                     </p>
-                    <a href="https://t.ly/WndGL"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://noorjahanimagesearch.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
-            <div class="work">
-                <img src="personal-portfolio-img/images/work-1.png" >
+            <div class="work" style="background-color: #fff;">
+                <img src="personal-portfolio-img/images/sorting3.png" >
                 <div class="layer">
-                    <h2 style="text-decoration: underline; padding-bottom: 10px;">Recruitment System</h2>
-                    <p>Developed a comprehensive Recruitment System using Java, Swing, and
-                        AWT for the frontend interface. Utilized JDBC for seamless integration
-                        with SQL databases, allowing efficient storage and retrieval of recruitment-
-                        related data. The system includes functionalities including candidate login,
-                        registration, job posting, Application Form and Company login, access to
-                        students info.</p> 
+                    <h2 style="text-decoration: underline; padding-bottom: 10px;">Sorting Algorithms visualization</h2>
+                    <p>Developed a project that visualizes various sorting algorithms and measures their execution time,
+                         allowing users to input array sizes for performance comparison and educational insights.</p> 
                     </p>
-                    <a href="https://shorturl.at/jmtG8"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://noorjahansortingalgorithms.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="work">
@@ -118,7 +114,7 @@
                         allowing strategic engagement within a 3x3 grid. Utilized HTML, CSS, and JavaScript to create 
                         an interactive and visually appealing interface.</p> 
                     </p>
-                    <a href="https://t.ly/IT2Nl"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://noorjahantictactoe.netlify.app/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
         </div>
@@ -132,22 +128,20 @@
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
                 <p><i class="fa-solid fa-paper-plane"></i>noorjahanshaik234@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i>91+ 9390606321</p>
+                <p><i class="fa-solid fa-phone"></i>+91 9390606321</p>
                 <p><i class="fa-brands fa-linkedin"></i><a href="http://surl.li/rbphs" style="color: #fff;">Linkedin</a></p>
-                <a href="personal-portfolio-img/images/NOORJAHN SHAIK.pdf" download class="btn btn2">Download CV</a>
+                <a href="personal-portfolio-img/images/Noorjahan" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form name="submit-to-google-sheet">
                     <input type="text" name = "Name" placeholder="Your Name" required>
                     <input type="email" name = "Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
-    </div>
-    <div class="copyright">
-        <p>My name is Noorjahan<i class="fa-solid fa-heart"></i></p>
     </div>
 </div>
     <script>
@@ -179,5 +173,20 @@
             sidemenu.style.right = "-200px"
         }
     </script>
+    <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbz49G5yx3r9d5HtfjFrPaiUBN-gsqmC4pm50SVl4mgpTgU_BCeuY00jBjh8Wk_5_zH5Lw/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {msg.innerHTML = "Message Sent Successfully...!"
+    setTimeout(function(){
+        msg.innerHTML=""
+    },5000)
+    form.reset()})
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 </body>
 </html>
